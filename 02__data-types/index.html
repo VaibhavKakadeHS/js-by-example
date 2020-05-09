@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      /**
+       * Following are primitive data types in JS
+       * 1. null
+       * 2. undefined
+       * 3. numbers
+       * 4. strings
+       * 5. booleans
+       * 6. Object types
+       *   6a. JS provided object types -- Array, Date
+       *   6b. User defined object types
+       */
+
+      /**
+       * ----------------------------------
+       *      Primitive data types
+       * ----------------------------------
+       */
+
+      /**
+       * Null and undefined
+       */
+      var a = null; // This value is used to represent absense of value defined by developer
+      var b; // Value is undefined by default and JS's way of saying no value
+
+      // Notes:
+      // 1. In real world applications null is used to represent absense of object
+      // 2. Both values are falsy
+
+      /**
+       * Numbers
+       */
+      // There are not integers and floats in JS. Both are represented by numbers.
+      var i = 10;
+      var f = 230.12323;
+
+      // Division by 0 results in special non primitive value called NaN
+      var woah = i / 0;
+
+      /**
+       * Strings
+       */
+      var s = "Hello world"; // You can represent string using single quotes 'Hello world'
+      s.charAt(0);
+      s.charAt(s.length - 1);
+      s.substring(1,4);
+      s.slice(1,4);
+      s.indexOf("l");
+      // You can treat strings as arrays
+      var firstChar = s[0];
+
+      // Note:
+      // 1. How does s.<methods> works? Btw 's' is literal value.
+      //    JS converts 's' to corresponding wrapper object
+      // 2. Operations performed using string methods are immutable
+
+      /**
+       * Bool
+       */
+       var a = false;
+       var b = true;
+
+      /**
+       * -----------------------------------
+       *      Object types
+       * -----------------------------------
+       */
+
+      /**
+       * Dates
+       */
+      var then = new Date(2020, 2, 22); // The is lockdown start day :D
+      var now = new Date(); // The current date and time
+      var elapsed = now - then; // Difference in milliseconds
+
+
+      /**
+       * Arrays
+       */
+      var arr = [];
+      arr.push(1);
+      arr.push(2,3);
+      arr.length;
+      arr.pop();
+      // You can access the array using index
+      arr[1];
+
+      // Array can be initialized with default values
+      var defaultValuesArr = [1, 2, 3, 4];
+      var anyValueArr = [1, "str", 2.0, true, {}];
+
+      /**
+       * Objects
+       */
+      var obj = {a: 10};
+      console.log(obj);
+
+      // Add a property to object
+      obj.b = 20;
+      // Read the property of object in two ways
+      // 1. Using dot notation
+      obj.a;
+      // 2. Using square bracket notation
+      obj["b"];
+
+      // Try this!
+      obj = {"a": 10, a: 20};
+
+      // Objects can have nested properties
+      obj = {
+        a: {
+          b: 10
+        }
+      };
+
+      // Questions
+      // 1. When to use array and when to use objects?
+    </script>
+  </body>
+</html>
