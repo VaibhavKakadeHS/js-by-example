@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      /**
+       * These are the following control flow statements
+       * 1. if
+       * 2. switch
+       * 3. for
+       * 4. while
+       * 5. do while
+       */
+
+      /**
+       * If
+       */
+      var a = 10;
+
+      if (a == 10) {
+        console.log("a is 10");
+      }
+
+      if (a > 5) {
+        console.log("a is greater than 10");
+      }
+
+      // So we can use following operators
+      // 1. <   less than
+      // 2. <=  less that equal
+      // 3. > greater than
+      // 4. >= greater than equal
+
+      var b = 1;
+
+      if (b == true) {
+        console.log("But b is 1 :|");
+      }
+
+      if (b === true) {
+        console.log("Now this will not print :)");
+      }
+
+      var str = "hello";
+
+      if (str === "hello") {
+       console.log("wroks");
+      }
+
+      var obj1 = {a: 10};
+      var obj2 = {a: 10};
+
+      if (obj1 === obj2) {
+        console.log("This will not print");
+      } else {
+        console.log("objects are not equal");
+      }
+      // Same applies for arrays
+
+      var obj3 = obj1;
+
+      if (obj3 === obj1) {
+        console.log("equal");
+      }
+
+
+      /**
+       * switch
+       */
+
+      var value = "red";
+
+      switch (value) {
+        case "blue":
+          console.log("blue");
+          break;
+
+        case "red":
+          console.log("red");
+          break;
+
+        case "green":
+          console.log("red");
+          break;
+      }
+
+      /**
+       * For
+       */
+
+      var arr = [1,2,3,4,5];
+      var i;
+
+      for (i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+
+      /**
+       * While
+       */
+       var arr = [10,20,30];
+      var i = 0;
+
+      while(i < arr.length) {
+        console.log("arr[i] = ", arr[i]);
+        i++;
+      }
+
+      /**
+       * Do While
+       */
+
+      var arr = [10,20,30];
+      var i = 0;
+
+      do {
+        console.log("arr[i] = ", arr[i]);
+        i++;
+      } while(i < arr.length);
+
+      /**
+       * Array traversal
+       */
+      // 1. forEach - traverse array
+      arr.forEach(function (item) {
+        console.log(item);
+      });
+
+      // 2. map - returns new array
+      var double = arr.map(function (item) {
+        return item * 2;
+      });
+      console.log(double);
+
+      // 3. filter - filters out existing array
+      var greaterThanTwo = arr.filter(function(item) {
+        return item > 2;
+      });
+      console.log(greaterThanTwo);
+
+      // 4. some - returns true if condition is satisfied
+      var someAreGreaterThanThree = array.some(function (item) {
+        return item > 3;
+      });
+
+      /**
+       * Object traversal
+       */
+      var obj = {
+        a: 10,
+        b: 20,
+        c: {
+          d:10
+        }
+      };
+
+      for (var key in obj) {
+        console.log("key = ", key, " value = ", obj[key]);
+      }
+
+    </script>
+  </body>
+</html>
