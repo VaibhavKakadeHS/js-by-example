@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      /**
+       * Function are special in JS
+       * 1. Function are objects in JS
+       * 2. Each function is an instance of the Function type that has properties
+       *    and methods just like any other reference type
+       * 3. Because functions are objects, function names are simply
+       *    pointers to function objects and are not necessarily tied to
+       *    the function itself
+       */
+
+      // You can create function in following ways:
+      // Both these ways are correct
+      function add(num1, num2) {
+        return num1 + num2;
+      }
+
+      var sum = function (num1, num2) {
+        return num1 + num2;
+      }
+
+      // This is how you call a function
+      add(10, 20);
+      sum(40, 50);
+
+      function doSomething(param1, param2) {
+        console.log(param1, param2);
+        // What if I want another param?
+      };
+
+      doSomething(10, "hello");
+      doSomething("Hey", "function", "passing extra param?");
+
+      // Conventions
+      // 1. Mandatory params are accepted at the start
+      // 2. Optional params are accepted at the end
+      // 3. Pass object as param as you can add/delete keys-value pairs
+
+      function doOtherThings(mand1, mand2, opt1, opt2) {
+        console.log(mand1, mand2, opt1, opt2);
+      };
+
+      doOtherThings(10, 20, 30, 40);
+      doOtherThings(10, 20); // 3rd and 4th param are optional
+      doOtherThings(); // But still I can choose not to pass params
+
+      function printUserDetails(params) {
+        // Destructing object
+        const {
+          // name,
+          address,
+          paymentPref
+        } = params;
+
+        // I can destruct array as well
+        const [firstPaymentPref, secondPaymentPref] = paymentPref;
+        console.log("Name = ", name, " address = ", address, " paymentPref =", paymentPref);
+
+        // Rest operator
+        const {
+          name,
+          ...otherDetails
+        } = params;
+        const [firstPaymentPref, ...othersPaymentPref] = paymentPref;
+
+        console.log("otherDetails = ", otherDetails);
+        console.log("firstPaymentPref = ", firstPaymentPref, " othersPaymentPref = ", othersPaymentPref);
+      };
+
+      printUserDetails({
+        name: "VK",
+        address: ["Pune"],
+        paymentPref: ["Google Pay", "PayTM", "Bank Acc"]
+      });
+
+      /**
+       * Scoping in JS
+       */
+
+      // Variable scoping
+      // What will be the output?
+      function foo () {
+        var a = 10;
+
+        if (a > 20) {
+          var b = 20;
+        }
+
+        console.log(b);
+      }
+
+      // Variable b will be moved at the top of the function
+      // Variable declared using var are hoisted at the top of the function
+      // which is called variable hoisting
+      // Earlier all the variable used to have function scope
+
+      // So what if I want block scope?
+      function foo() {
+        const a = 10;
+
+        if (a > 20) {
+          let b = 20;
+
+          console.log(b);
+
+          b = 30; // let allows you to reassign the value of variable
+
+          console.log(b);
+        }
+
+        console.log("Outside if block, value of b = ", b);
+      }
+
+      // Questions:
+      // 1. What happens when I declare a variable in console?
+
+      /**
+       * Closures in javascript
+       */
+
+      // 1. Variable look ups
+      function foo() {
+        const a = 10;
+
+        // I can have nested functions in JS
+        function bar () {
+          // This is variable loop up!!!
+          return a;
+        }
+
+        // What will be the output
+        bar();
+      }
+
+      foo();
+
+      // 2. Closures
+      // Intresting stuff
+      function foo() {
+        const a = 10;
+
+        // I can return nested functions in JS
+        return function bar() {
+          return a;
+        }
+      }
+
+      // fn will have the nexted function
+      const fn = foo();
+
+      // What will happen if I call fn?
+      fn();
+
+    </script>
+  </body>
+</html>
