@@ -23,7 +23,7 @@
 
       // Compounding operator
       var str = "hello";
-      str += " world";
+      str += " world"; // str = str + " world"
 
       // Equality operator
       var a = 10;
@@ -40,6 +40,7 @@
 
       // Ordering operators
       var a = 10;
+      var b = 2;
       console.log("a less than 10? ", a < 10);
       console.log("a equal to 10", a === 10);
       console.log("a greater than 10? ", a > 10);
@@ -48,7 +49,7 @@
       console.log("a greater than equal 10? ", a >= 10);
 
       // Other operators
-      var str = a === 10 ? "a is 10" : "a is something else";
+      var str = (a === 10) ? "a is 10" : "a is something else";
 
       var obj = {a: 10};
       var result = obj && obj.a;
@@ -58,12 +59,14 @@
       var b;
       var c = 10;
       var d = 10.10;
+      var e = "hello";
       var arr = [1,2,3];
 
       console.log("type of a = ", typeof a);
       console.log("type of b = ", typeof b);
       console.log("type of c = ", typeof c);
       console.log("type of d = ", typeof d);
+      console.log("type of e = ", typeof e);
       console.log("type of arr = ", typeof arr);
     </script>
   </body>
