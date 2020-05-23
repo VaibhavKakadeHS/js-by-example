@@ -36,6 +36,7 @@
         console.log("But b is 1 :|");
       }
 
+      var b = "true";
       if (b === true) {
         console.log("Now this will not print :)");
       }
@@ -81,6 +82,9 @@
         case "green":
           console.log("red");
           break;
+
+        default:
+          console.log("this is default");
       }
 
       /**
@@ -121,8 +125,8 @@
        * Array methods
        */
       // 1. forEach - traverse array
-      arr.forEach(function (item) {
-        console.log(item);
+      arr.forEach(function (item, index) {
+        console.log(item, index);
       });
 
       // 2. map - returns new array
@@ -132,13 +136,14 @@
       console.log(double);
 
       // 3. filter - filters out existing array
+      var arr = [1,2,3,4,5];
       var greaterThanTwo = arr.filter(function(item) {
         return item > 2;
       });
       console.log(greaterThanTwo);
 
       // 4. some - returns true if condition is satisfied
-      var someAreGreaterThanThree = array.some(function (item) {
+      var someAreGreaterThanThree = arr.some(function (item) {
         return item > 3;
       });
 
