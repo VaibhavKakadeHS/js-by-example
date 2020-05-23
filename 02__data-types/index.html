@@ -37,14 +37,14 @@
       var i = 10;
       var f = 230.12323;
 
-      // Division by 0 results in special non primitive value called NaN
+      // Division by 0 results in special non primitive value called Infinity
       var woah = i / 0;
 
       /**
        * Strings
        */
       var s = "Hello world"; // You can represent string using single quotes 'Hello world'
-      s.charAt(0);
+      var firstChar = s.charAt(0);
       s.charAt(s.length - 1);
       s.substring(1,4);
       s.slice(1,4);
@@ -104,7 +104,7 @@
       // 1. Using dot notation
       obj.a;
       // 2. Using square bracket notation
-      obj["b"];
+      obj["a"];
 
       // Try this!
       obj = {"a": 10, a: 20};
@@ -118,6 +118,7 @@
 
       // Questions
       // 1. When to use array and when to use objects?
+      // 2. Why are we creating literals to create objects?
     </script>
   </body>
 </html>
