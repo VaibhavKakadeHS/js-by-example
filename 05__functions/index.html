@@ -18,7 +18,7 @@
         return num1 + num2;
       }
 
-      var sum = function (num1, num2) {
+      var sum = function(num1, num2) {
         return num1 + num2;
       }
 
@@ -27,6 +27,7 @@
       sum(40, 50);
 
       function doSomething(param1, param2) {
+        console.log(arguments);
         console.log(param1, param2);
         // What if I want another param?
       };
@@ -39,7 +40,11 @@
       // 2. Optional params are accepted at the end
       // 3. Pass object as param as you can add/delete keys-value pairs
 
-      function doOtherThings(mand1, mand2, opt1, opt2) {
+      // function doOtherThings(mand1, mand2, opt1 = 1, opt2 = "") {
+      function doOtherThings(params) {
+        var mand1 = params.mand1;
+
+        console.log(this.arguments);
         console.log(mand1, mand2, opt1, opt2);
       };
 
@@ -49,15 +54,14 @@
 
       function printUserDetails(params) {
         // Destructing object
-        const {
+        var {
           // name,
           address,
           paymentPref
         } = params;
 
         // I can destruct array as well
-        const [firstPaymentPref, secondPaymentPref] = paymentPref;
-        console.log("Name = ", name, " address = ", address, " paymentPref =", paymentPref);
+        const [firstPayment, secondPaymentPref] = paymentPref;
 
         // Rest operator
         const {
@@ -66,6 +70,7 @@
         } = params;
         const [firstPaymentPref, ...othersPaymentPref] = paymentPref;
 
+        console.log("Name = ", name, " address = ", address, " paymentPref =", paymentPref);
         console.log("otherDetails = ", otherDetails);
         console.log("firstPaymentPref = ", firstPaymentPref, " othersPaymentPref = ", othersPaymentPref);
       };
@@ -89,8 +94,9 @@
           var b = 20;
         }
 
-        console.log(b);
+        console.log("b = ", b);
       }
+
 
       // Variable b will be moved at the top of the function
       // Variable declared using var are hoisted at the top of the function
@@ -126,13 +132,16 @@
         const a = 10;
 
         // I can have nested functions in JS
-        function bar () {
+        function bar() {
           // This is variable loop up!!!
-          return a;
+          console.log("a = ", a);
+          // return a;
         }
 
-        // What will be the output
         bar();
+        // What will be the output
+        // var returnValue = bar();
+        // console.log("returnValue = ", returnValue);
       }
 
       foo();
@@ -143,16 +152,23 @@
         const a = 10;
 
         // I can return nested functions in JS
-        return function bar() {
+        return () => {
           return a;
         }
       }
 
       // fn will have the nexted function
-      const fn = foo();
+      var fn = foo();
 
       // What will happen if I call fn?
       fn();
+
+      var obj = {
+        a: 10,
+        printData: () => {
+          console.log("I will print data");
+        }
+      };
 
     </script>
   </body>
