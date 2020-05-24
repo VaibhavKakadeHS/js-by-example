@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+    /**
+     * Inheritance in JS
+     */
+
+    /**
+     * Creating classes in JS
+     */
+    // This is how we create a class
+    function Person(name) {
+      this.name = name;
+      this.sayName = function () {
+        console.log(this.name);
+      }
+    }
+
+    const p = new Person("VK");
+    console.log(p.name);
+    console.log(p.sayName());
+
+    // But there is one problem
+    // For each instance, sayName function will be allocated memory again
+    // In order to solve that issue, we will create a function on prototype
+    function Person(name) {
+      this.name = name;
+    }
+
+    // prototype is a special property present on a function
+    Person.prototype.sayName = function () {
+      console.log(this.name);
+    }
+
+    const p = new Person("VK");
+
+    // Questions:
+    // 1. How to differentiate between a function and a constructor?
+
+    function Person(name) {
+      const calledWithNewKeyword = this instanceof Person;
+
+      if (!calledWithNewKeyword) {
+        throw new Error("This function is a class, should be called with 'new' keyword");
+      }
+
+      this.name = name;
+    }
+
+    Person.prototype.printName = function () {
+      console.log(this.name);
+    }
+
+    // Now doing this will throw an error
+    Person();
+
+    /**
+     * Inheritance in JS
+     */
+    function Person(name) {
+      this.name = name;
+    }
+
+    Person.prototype.printName = function () {
+      console.log(this.name);
+    }
+
+    function Employee(id, name) {
+      // This is a normal function call with employee's this as param
+      Person.call(this, name);
+      this.employeeId = id;
+    }
+
+    Employee.prototype = new Person();
+    Employee.prototype.printEmployeeId = function () {
+      console.log(this.employeeId);
+    }
+
+    const e = new Employee(1, "VK");
+
+    // But this all seems confusing
+
+    // New way of creating classes
+    class Person {
+      constructor(name) {
+        this.name = name;
+      }
+
+      printName() {
+        console.log(this.name);
+      }
+    }
+
+    class Employee extends Person {
+      constructor(id, name) {
+        super(name);
+        this.id = id;
+      }
+
+      printId() {
+        console.log(this.id);
+      }
+    }
+
+    // Questions?
+
+  </script>
+</body>
+
+</html>
