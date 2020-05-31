@@ -12,6 +12,7 @@
      */
     // This is how we create a class
     function Person(name) {
+      // You can access class property using 'this' keyword
       this.name = name;
       this.sayName = function () {
         console.log(this.name);
@@ -29,7 +30,7 @@
       this.name = name;
     }
 
-    // prototype is a special property present on a function
+    // Here, 'prototype' is a special property present on a function
     Person.prototype.sayName = function () {
       console.log(this.name);
     }
@@ -46,6 +47,7 @@
         throw new Error("This function is a class, should be called with 'new' keyword");
       }
 
+      // NOTE: The value of 'this' can change
       this.name = name;
     }
 
@@ -69,7 +71,8 @@
 
     function Employee(id, name) {
       // This is a normal function call with employee's this as param
-      Person.call(this, name);
+      Person.call(this, name, id, payment);
+      Person.apply(this, [name, id, payment]);
       this.employeeId = id;
     }
 
