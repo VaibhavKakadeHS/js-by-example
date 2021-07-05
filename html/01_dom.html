@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <!--
+      1. I can keep head empty
+      2. Content of head tag are not rendered on the page
+    -->
+    <style>
+      div {
+        width: 100px;
+        height: 50px;
+        border: 1px solid red;
+      }
+
+      span {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      // DOM
+      1. DOM = Document Object Model.
+      2. The DOM represents the document as nodes and objects.
+      3. It provides APIs for programming languages to connect to the webpage page.
+     -->
+     <script>
+       // Create DOM
+       var divElem = document.createElement("div");
+       console.log(divElem);
+       // This elem is not visible on page. It's created in memory in JS
+
+       // Append DOM
+       document.body.append(divElem);
+
+       // You can append new elements into existing elements
+       var spanElem = document.createElement("span");
+       spanElem.textContent = "I am span";
+       var appendedDivElem = document.querySelector("div");
+       appendedDivElem.append(spanElem);
+
+       // Edit DOM
+       var myDiv = document.querySelector("div");
+       console.log("myDiv = ", myDiv);
+     </script>
+  </body>
+</html>

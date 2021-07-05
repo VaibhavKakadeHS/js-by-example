@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <style>
+      div {
+        width: 100px;
+        height: 50px;
+        border: 1px solid;
+      }
+      #d1 {
+        width: 300px;
+        height: 300px;
+        background-color: lightblue;
+      }
+      #d2 {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+      }
+      #d3 {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">Click</button>
+    <input type="text" id="name">
+
+    <div id="d1">
+      div 1
+      <div id="d2">
+        div 2
+        <div id="d3">
+          div 3
+        </div>
+      </div>
+    </div>
+     <script>
+       // Events
+       // 1. Events are actions or occurrences that happen on webpage
+       // 2. You can respond to them in some way if desired
+
+       // This event is fired when the whole page has loaded, including
+       // all dependent resources such as stylesheets and images
+       window.addEventListener("load", function (event) {
+         console.log("page is fully loaded");
+       });
+
+      // This event is fired when the initial HTML document has been completely
+      // loaded and parsed, without waiting for stylesheets, images,
+      // and subframes to finish loading.
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Document is loaded");
+      });
+
+      // You can listen to click event on button
+      var btn = document.querySelector("#btn");
+      btn.addEventListener("click", function(evt) {
+        console.log("Click event | event = ", evt);
+      });
+
+      // You can listen to change event on input field
+      var inputElem = document.querySelector("#name");
+      inputElem.addEventListener("change", function(e) {
+        console.log("Change event | value = ", e.target.value);
+      });
+
+      // You can add click listen to div as well
+      var div1 = document.querySelector("#d1");
+      div1.addEventListener("click", function(evt) {
+        console.log("Click event for div 1 | event = ", evt);
+      });
+
+      // What event sequence should be followed if nested divs have events?
+      // Theses divs are similar concentric circles
+      var div2 = document.querySelector("#d2");
+      div2.addEventListener("click", function(evt) {
+        console.log("Click event for div 2 | event = ", evt);
+      }, true); // The 3rd parameter decided if the element gets the event first
+
+      var div3 = document.querySelector("#d3");
+      div3.addEventListener("click", function(evt) {
+        console.log("Click event for div 3 | event = ", evt);
+      });
+
+     </script>
+  </body>
+</html>
