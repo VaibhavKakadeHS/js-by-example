@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <style>
+
+    #experiment {
+      color: yellowgreen;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+    }
+
+    .text-red {
+      color: red;
+    }
+
+    /*
+     * Which css would be applied to fancy?
+     */
+
+    /*
+     * Scenario 1
+     */
+    .box p span {
+      color: yellow;
+    }
+
+    #fancy {
+      color: violet;
+    }
+
+    /*
+     * Scenario 2
+     */
+    #scenario2 p span {
+      color: blue;
+    }
+
+    #scenario2 p>span {
+      color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="scenario1" class="box">
+    <p>
+      This is some <span id="fancy">fancy</span> text
+    </p>
+
+    <div style="color:blue" class="text-red" id="experiment">This div will have a red color</div>
+  </div>
+
+  <div id="scenario2">
+    <p>
+      <span>fancy</span>
+    </p>
+  </div>
+
+  <div class="box">
+    <p>
+      Remember simple rules:
+    <ul>
+      <li>Inline styles get 1000</li>
+      <li>Ids get 100</li>
+      <li>Classes get 10</li>
+      <li>Element name, pseudo classes/pseudo elements get 1</li>
+    </ul>
+    </p>
+  </div>
+</body>
+
+</html>

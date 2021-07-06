@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <style>
+      /*
+       * Selectors are used to define html elements for which CSS rules apply
+       */
+
+      /* Universal selector */
+      * {
+        color: gray;
+      }
+
+      /*
+       * Type selector
+       * Just the name of the element is used to represent a given element
+       */
+      body {
+        border: 1px solid green;
+      }
+
+      /*
+       * ID selector
+       * Id i.e "#" is used to represent a unique element
+       */
+      #fancy {
+        color: blue;
+      }
+
+      #unique {
+        border: 1px solid red;
+      }
+
+      /*
+       * Class selector
+       * Class i.e "." is used to represent a class i.e a common selector
+       */
+      .text-red {
+        color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="unique">
+      This div has an unique identifier. Divs take up the entire width.
+    </div>
+
+    <p>
+      This is some <span id="fancy">fancy</span> text
+    </p>
+
+    <div class="text-red">
+      This div has an common class. Dont confuse this with classes in programming language
+    </div>
+
+    <div class="text-red">
+      I can apply same class to different elements.
+    </div>
+
+  </body>
+</html>
